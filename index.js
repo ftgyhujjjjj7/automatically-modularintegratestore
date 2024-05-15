@@ -1,13 +1,10 @@
-const fibonacci = (n) => {
-  if (n <= 1) {
-    return n;
+function generateParenthesis(n) {
+  const result = [];
+  backtrack("", 0, 0);
+  return result;
+  function backtrack(current, open, close) {
+    if (current.length === 2 * n) result.push(current);
+    if (open < n) backtrack(current + "(", open + 1, close);
+    if (close < open) backtrack(current + ")", open, close + 1);
   }
-  let prev = 0;
-  let curr = 1;
-  for (let i = 2; i <= n; i++) {
-    const next = prev + curr;
-    prev = curr;
-    curr = next;
-  }
-  return curr;
-};
+}
